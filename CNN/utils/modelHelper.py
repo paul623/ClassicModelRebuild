@@ -11,6 +11,8 @@ from torch.utils.data import DataLoader
 from torch import nn
 from torch.utils.tensorboard import SummaryWriter
 import time
+
+
 # 加载FASHION数据集
 def load_data_fashion_mnist(batch_size, resize, root="../dataset"):
     transform = torchvision.transforms.Compose([
@@ -29,6 +31,7 @@ def getAvailableDevice():
         return torch.device("cuda")
     else:
         return torch.device("cpu")
+
 
 # 训练 测试 保存 日志
 # 优化器可以自己定义，直接该源码吧~
@@ -96,3 +99,5 @@ def trainAndTest(model, train_iter, test_iter, epoch, lr, log_dir="../logs", sav
             torch.save(net, "MyModel_{}.pth".format(i))
             print("模型已保存")
     writer.close()
+
+

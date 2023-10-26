@@ -1,6 +1,6 @@
 """
 @Project ：ClassicModelRebuild 
-@File    ：test.py
+@File    ：train.py
 @IDE     ：PyCharm 
 @Author  ：paul623
 @Date    ：2023/10/23 16:15 

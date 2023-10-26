@@ -1,14 +1,13 @@
 """
 @Project ：ClassicModelRebuild 
-@File    ：train.py
+@File    ：test.py
 @IDE     ：PyCharm 
 @Author  ：paul623
-@Date    ：2023/10/23 16:33 
+@Date    ：2023/10/26 21:13 
 """
 from CNN.utils import modelHelper
-from model import AlexNet
+from model import NiN
 
-lr, num_epochs, batch_size = 0.01, 10, 128
+lr, num_epochs, batch_size = 0.1, 10, 128
 train_iter, test_iter = modelHelper.load_data_fashion_mnist(batch_size, resize=224)
-modelHelper.trainAndTest(AlexNet, train_iter, test_iter, num_epochs, lr)
-
+modelHelper.trainAndTest(NiN, train_iter, test_iter, num_epochs, lr)

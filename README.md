@@ -27,3 +27,6 @@ def trainAndTest(model, train_iter, test_iter, epoch, lr, log_dir="../logs", sav
 ```
 
 自行指定logdir地址，save_model是每一epoch保存一次，保存在当前路径下面。
+
+# 更新日志
+[2023年10月26日] NiN

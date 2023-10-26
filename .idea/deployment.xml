@@ -10,6 +10,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="zbl@10.255.249.187:22 password (2)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/codeLab/remotePython/ClassicModelRebuild" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
     </serverData>
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
