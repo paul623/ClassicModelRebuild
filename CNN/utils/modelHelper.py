@@ -11,6 +11,7 @@ from torch.utils.data import DataLoader
 from torch import nn
 from torch.utils.tensorboard import SummaryWriter
 import time
+import d2l
 
 
 # 加载FASHION数据集
@@ -34,14 +35,22 @@ def getAvailableDevice():
 
 
 # 训练 测试 保存 日志
-# 优化器可以自己定义，直接该源码吧~
+# 优化器可以自己定义，直接改源码吧~
 def trainAndTest(model, train_iter, test_iter, epoch, lr, log_dir="../logs", save_model=False):
     device = getAvailableDevice()
     train_data_size = len(train_iter.dataset)
     test_data_size = len(test_iter.dataset)
+
+    def init_weights(m):
+        if type(m) == nn.Linear or type(m) == nn.Conv2d:
+            nn.init.xavier_uniform_(m.weight)
+
     # 创建网络
     net = model()
     net.to(device)  # 设置在指定设备上运行
+
+    net.apply(init_weights)
+
     # 损失函数
     loss_fn = nn.CrossEntropyLoss()
     loss_fn = loss_fn.to(device)
@@ -60,13 +69,13 @@ def trainAndTest(model, train_iter, test_iter, epoch, lr, log_dir="../logs", sav
         net.train()
         # 训练步骤开始
         for data in train_iter:
+            optimizer.zero_grad()
             imgs, targets = data
             imgs = imgs.to(device)  # GPU加速
             targets = targets.to(device)
             outputs = net(imgs)
             loss = loss_fn(outputs, targets)
             # 优化器优化模型
-            optimizer.zero_grad()
             loss.backward()
             optimizer.step()
             # 记录训练次数
@@ -99,5 +108,4 @@ def trainAndTest(model, train_iter, test_iter, epoch, lr, log_dir="../logs", sav
             torch.save(net, "MyModel_{}.pth".format(i))
             print("模型已保存")
     writer.close()
-
 
