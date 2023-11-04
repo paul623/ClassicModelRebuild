@@ -26,6 +26,7 @@ def load_data_fashion_mnist(batch_size, resize, root="../dataset"):
     return train_iter, test_iter
 
 
+
 def getAvailableDevice():
     if torch.cuda.is_available():
         return torch.device("cuda")

@@ -6,14 +6,14 @@
       <paths name="zbl@10.255.249.187:22 password">
         <serverdata>
           <mappings>
-            <mapping deploy="/codeLab/remotePython/ClassicModelRebuild" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/zbl/codeLab/remotePython/ClassicModelRebuild" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
       <paths name="zbl@10.255.249.187:22 password (2)">
         <serverdata>
           <mappings>
-            <mapping deploy="/codeLab/remotePython/ClassicModelRebuild" local="$PROJECT_DIR$" />
+            <mapping deploy="/home/zbl/codeLab/remotePython/ClassicModelRebuild" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
